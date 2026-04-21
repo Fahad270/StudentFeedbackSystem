@@ -47,65 +47,56 @@ function FeedbackForm() {
     }
   };
 
-  return (
-    <div style={{
-      maxWidth: "400px",
-      margin: "auto",
-      padding: "20px",
-      background: "#fff",
-      borderRadius: "12px",
-      boxShadow: "0 4px 10px rgba(0,0,0,0.1)"
-    }}>
-      <h2 style={{ textAlign: "center" }}>📝 Feedback Form</h2>
+  return (<div style={containerStyle}>
+  <form style={formStyle} onSubmit={handleSubmit}>
+    <h2 style={titleStyle}>📝 Feedback</h2>
 
-      <form onSubmit={handleSubmit}>
+    <input
+      type="text"
+      name="studentName"
+      placeholder="Student Name"
+      value={formData.studentName}
+      onChange={handleChange}
+      required
+      style={inputStyle}
+    />
 
-        <input
-          type="text"
-          name="studentName"
-          placeholder="Student Name"
-          value={formData.studentName}
-          onChange={handleChange}
-          required
-          style={inputStyle}
-        />
+    <input
+      type="text"
+      name="courseName"
+      placeholder="Course Name"
+      value={formData.courseName}
+      onChange={handleChange}
+      required
+      style={inputStyle}
+    />
 
-        <input
-          type="text"
-          name="courseName"
-          placeholder="Course Name"
-          value={formData.courseName}
-          onChange={handleChange}
-          required
-          style={inputStyle}
-        />
+    <input
+      type="number"
+      name="rating"
+      placeholder="Rating (1-5)"
+      min="1"
+      max="5"
+      value={formData.rating}
+      onChange={handleChange}
+      required
+      style={inputStyle}
+    />
 
-        <input
-          type="number"
-          name="rating"
-          placeholder="Rating (1-5)"
-          min="1"
-          max="5"
-          value={formData.rating}
-          onChange={handleChange}
-          required
-          style={inputStyle}
-        />
+    <textarea
+      name="comments"
+      placeholder="Your feedback..."
+      value={formData.comments}
+      onChange={handleChange}
+      required
+      style={{ ...inputStyle, height: "90px" }}
+    />
 
-        <textarea
-          name="comments"
-          placeholder="Comments"
-          value={formData.comments}
-          onChange={handleChange}
-          required
-          style={{ ...inputStyle, height: "80px" }}
-        />
-
-        <button style={btnStyle} type="submit">
-          Submit 🚀
-        </button>
-      </form>
-    </div>
+    <button type="submit" style={btnStyle}>
+      Submit 🚀
+    </button>
+  </form>
+</div>
   );
 }
 
@@ -125,6 +116,54 @@ const btnStyle = {
   border: "none",
   borderRadius: "8px",
   cursor: "pointer"
+};
+
+
+const containerStyle = {
+  height: "100vh",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  background: "linear-gradient(135deg, #0f172a, #1e293b)"
+};
+
+const formStyle = {
+  backdropFilter: "blur(15px)",
+  background: "rgba(255, 255, 255, 0.1)",
+  padding: "30px",
+  borderRadius: "16px",
+  width: "320px",
+  boxShadow: "0 8px 30px rgba(0,0,0,0.3)",
+  display: "flex",
+  flexDirection: "column",
+  gap: "12px"
+};
+
+const titleStyle = {
+  textAlign: "center",
+  color: "#fff",
+  marginBottom: "10px"
+};
+
+const inputStyle = {
+  padding: "10px",
+  borderRadius: "8px",
+  border: "none",
+  outline: "none",
+  background: "rgba(255,255,255,0.2)",
+  color: "#fff",
+  fontSize: "14px"
+};
+
+const btnStyle = {
+  padding: "10px",
+  borderRadius: "8px",
+  border: "none",
+  background: "#22c55e",
+  color: "#fff",
+  fontWeight: "bold",
+  cursor: "pointer",
+  transition: "0.3s"
 };
 
 export default FeedbackForm;
