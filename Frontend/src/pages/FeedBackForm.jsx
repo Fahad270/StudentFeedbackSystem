@@ -100,23 +100,6 @@ function FeedbackForm() {
   );
 }
 
-const inputStyle = {
-  width: "100%",
-  padding: "10px",
-  margin: "10px 0",
-  borderRadius: "8px",
-  border: "1px solid #ccc"
-};
-
-const btnStyle = {
-  width: "100%",
-  padding: "10px",
-  background: "#4CAF50",
-  color: "#fff",
-  border: "none",
-  borderRadius: "8px",
-  cursor: "pointer"
-};
 
 
 const containerStyle = {
